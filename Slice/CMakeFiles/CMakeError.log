@@ -1,0 +1,98 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2f7c0/fast && /usr/bin/make -f CMakeFiles/cmTC_2f7c0.dir/build.make CMakeFiles/cmTC_2f7c0.dir/build
+make[1]: Entering directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2f7c0.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_2f7c0.dir/src.cxx.o -c /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_2f7c0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f7c0.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_2f7c0.dir/src.cxx.o  -o cmTC_2f7c0 
+CMakeFiles/cmTC_2f7c0.dir/src.cxx.o: In function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+src.cxx:(.text+0x5b): undefined reference to `pthread_join'
+src.cxx:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_2f7c0.dir/build.make:86: recipe for target 'cmTC_2f7c0' failed
+make[1]: *** [cmTC_2f7c0] Error 1
+make[1]: Leaving directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_2f7c0/fast' failed
+make: *** [cmTC_2f7c0/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_49ea6/fast && /usr/bin/make -f CMakeFiles/cmTC_49ea6.dir/build.make CMakeFiles/cmTC_49ea6.dir/build
+make[1]: Entering directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_49ea6.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_49ea6.dir/CheckFunctionExists.cxx.o -c /code/OCRTransformer/plugin/Slice/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_49ea6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49ea6.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_49ea6.dir/CheckFunctionExists.cxx.o  -o cmTC_49ea6  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_49ea6.dir/build.make:86: recipe for target 'cmTC_49ea6' failed
+make[1]: *** [cmTC_49ea6] Error 1
+make[1]: Leaving directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_49ea6/fast' failed
+make: *** [cmTC_49ea6/fast] Error 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_94b80/fast"
+/usr/bin/make -f CMakeFiles/cmTC_94b80.dir/build.make CMakeFiles/cmTC_94b80.dir/build
+make[1]: Entering directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_94b80.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_94b80.dir/CheckSymbolExists.cxx.o -c /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_94b80
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94b80.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_94b80.dir/CheckSymbolExists.cxx.o  -o cmTC_94b80 
+CMakeFiles/cmTC_94b80.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_94b80.dir/build.make:86: recipe for target 'cmTC_94b80' failed
+make[1]: *** [cmTC_94b80] Error 1
+make[1]: Leaving directory '/code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_94b80/fast' failed
+make: *** [cmTC_94b80/fast] Error 2
+
+File /code/OCRTransformer/plugin/Slice/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

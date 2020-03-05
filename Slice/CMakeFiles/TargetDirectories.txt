@@ -1,0 +1,5 @@
+/code/OCRTransformer/plugin/Slice/CMakeFiles/rebuild_cache.dir
+/code/OCRTransformer/plugin/Slice/CMakeFiles/OCRTrt.dir
+/code/OCRTransformer/plugin/Slice/CMakeFiles/edit_cache.dir
+/code/OCRTransformer/plugin/Slice/common/CMakeFiles/rebuild_cache.dir
+/code/OCRTransformer/plugin/Slice/common/CMakeFiles/edit_cache.dir
